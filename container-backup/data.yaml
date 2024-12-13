@@ -1,10 +1,15 @@
 task:
   name: container-backup
-  descriptionZh: 重启一个容器
-  descriptionEn: restart container
+  descriptionZh: |
+    备份容器中挂载目录
+  descriptionEn: |
+    Backup the mount directory in the container
   script: |
-    docker restart ${CONTAINER_NAME}
+    docker run -it --rm --name dpanel-task-backup --volumes-from ${CONTAINER_NAME} -v ${BACKUP_PATH}:/backup busybox tar czf /backup/${CONTAINER_NAME}_$(date +"%Y%m%d%H%M%S").tar ${CONTAINER_NAME}
   environment:
     - name: CONTAINER_NAME
       label: 容器名称
       labelEn: container name
+    - name: BACKUP_PATH
+      label: 备份到主机目录
+      labelEn: host backup path
