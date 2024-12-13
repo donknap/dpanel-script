@@ -1,0 +1,10 @@
+task:
+  name: docker restart
+  descriptionZh: 重启一个容器
+  descriptionEn: restart container
+  script: |
+    docker restart ${CONTAINER_NAME}
+  environment:
+    - name: CONTAINER_NAME
+      label: 容器名称
+      labelEn: container name
