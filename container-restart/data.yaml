@@ -1,10 +1,14 @@
 task:
-  name: docker restart
+  name: container-restart
   descriptionZh: 重启一个容器
   descriptionEn: restart container
   script: |
-    docker restart ${CONTAINER_NAME}
+    docker restart ${CONTAINER_NAME} && \
+    echo 重启 ${CONTAINER_NAME} 容器完成
+  tag:
+    - dpanel
+    - run-in-dpanel
   environment:
     - name: CONTAINER_NAME
-      label: 容器名称
+      labelZh: 容器名称
       labelEn: container name
