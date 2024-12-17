@@ -1,2 +1,3 @@
-# dpanel-task
-dpanel 脚本任务
+# dpanel 任务脚本示例仓库
+
+本仓库提供了基于 DPanel 面板计划任务中的脚本模板规范示例。
